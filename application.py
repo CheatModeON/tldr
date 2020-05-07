@@ -4,7 +4,6 @@
 from flask import jsonify
 from flask import request
 from flask import Flask, render_template
-from flask_cors import CORS
 
 from datetime import datetime
 import json
@@ -17,8 +16,6 @@ app = Flask(__name__)
 app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
 #app.config['JSON_AS_ASCII'] = False
 
-cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
-
 torch_device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
 
@@ -29,7 +26,7 @@ def about():
 @app.route('/tldr/', methods=["GET"])
 def tldr():
 
-    parameter = request.args.get('country')
+    parameter = request.args.get('txt')
         
     LONG_TEXT = parameter.replace('\n','')
 
