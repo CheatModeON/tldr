@@ -1,0 +1,28 @@
+<html>
+   <body>
+      <form action = "http://localhost:5000/tldr/" method = "POST">
+         <p><textarea id="txt" name="txt" placeholder="Write something.." style="width:800px; height:600px"></textarea></p>
+         <p>Sentences: <input type="range" id="sent_no" name="sent_no" min="2" max="10" value="3" step="1"> <span id="s1"></span> </p>
+         <p>Max Words: <input type="range" id="max_words" name="max_words" min="100" max="500" value="142" step="1"> <span id="s2"></span> </p>
+                 
+         <p><input type = "submit" value = "submit" /> </p>
+      </form>
+      
+      <script>
+        var slider1 = document.getElementById("sent_no");
+        var slider2 = document.getElementById("max_words");
+        var output1 = document.getElementById("s1");
+        var output2 = document.getElementById("s2");
+        output1.innerHTML = slider1.value;
+        output2.innerHTML = slider2.value;
+
+        slider1.oninput = function() {
+            output1.innerHTML = this.value;
+        }
+
+        slider2.oninput = function() {
+          output2.innerHTML = this.value;
+        }
+      </script>
+   </body>
+</html>
