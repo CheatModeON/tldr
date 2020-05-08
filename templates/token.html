@@ -1,0 +1,57 @@
+<html>
+   <head>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.js"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/addons/p5.sound.js"></script>
+       <script
+  src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+  integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs="
+  crossorigin="anonymous"></script>
+   <style>
+    body {
+        text-align: center;
+    }
+    div {
+        width:400px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+   </style>
+   </head>
+   <body>
+      <h1> THE REQUESTED SUMMARY IS: </h1>
+      <div id="text">
+          <p>{{res}}</p>
+      </div>
+      
+      <script>
+        $(document).ready(function() {
+          var txt='{{res}}';
+          if(txt=='processing...') {
+            setTimeout(function(){ location.reload(); }, 5000);
+          }
+          if (window.SpeechSynthesisUtterance === undefined) {
+              // Not supported
+            } else {
+              if(txt!='processing...'){
+                  var utterance = new SpeechSynthesisUtterance('{{res}}');
+                  window.speechSynthesis.speak(utterance);
+              }
+            }
+        });
+      </script>
+      
+      <!--script>
+          let amp;
+          function setup() {
+              createCanvas(200,200);
+              amp = new p5.Amplitude();
+          }
+          function draw() {
+              background(0);
+              var vol = amp.getLevel();
+              ellipse(100,100,200,vol*200);
+          }
+      </script-->
+   </body>
+</html>
