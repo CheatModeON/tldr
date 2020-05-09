@@ -24,6 +24,8 @@ import numpy as np
 UPLOAD_FOLDER = join(dirname(realpath(__file__)), 'static/uploads/')
 ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
 
+HOSTNAME = '83.212.102.161'
+
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
@@ -35,6 +37,7 @@ tokenizer = BartTokenizer.from_pretrained('bart-large-cnn')
 model = BartForConditionalGeneration.from_pretrained('bart-large-cnn')
 
 results = []
+articles = []
 id = 0
 
 def allowed_file(filename):
@@ -115,6 +118,7 @@ def tldr():
     global results
     id = id + 1
     results.append("processing...") # waiting for thread
+    articles.append(LONG_TEXT)
     #submit(LONG_TEXT,id)
     
     thread = Thread(target=submit, args=(LONG_TEXT,id,max_words,))
@@ -122,13 +126,21 @@ def tldr():
     thread.start()
     return "your token is " + str(id-1) + "<br> use it <a href=\"http://localhost:5000/tkn?token="+ str(id-1) +"\">here</a>"
 
-@app.route('/tkn', methods=["GET"])
+@app.route('/result', methods=["GET"])
 def token():
     parameter = int(request.args['token'])
     if(parameter < 0 or parameter >= len(results)):
         return render_template('token.html', res="Invalid Token")
     else:
         return render_template('token.html', res=results[int(parameter)])
-
+    
+@app.route('/article',methods=["GET"])
+def get_articles():
+    parameter = int(request.args['token'])
+    if(parameter < 0 or parameter >= len(articles)):
+        return "Invalid Token"
+    else:
+        return articles[int(parameter)]
+    
 if __name__ == '__main__':
-    app.run(threaded=True, port=5000)
+    app.run(threaded=True, host=HOSTNAME, port=5000)
