@@ -124,7 +124,7 @@ def tldr():
     thread = Thread(target=submit, args=(LONG_TEXT,id,max_words,))
     thread.daemon = True
     thread.start()
-    return "your token is " + str(id-1) + "<br> use it <a href=\"http://localhost:5000/tkn?token="+ str(id-1) +"\">here</a>"
+    return "your token is " + str(id-1) + "<br> use it <a href=\"http://83.212.102.161:5000/result?token="+ str(id-1) +"\">here</a>"
 
 @app.route('/result', methods=["GET"])
 def token():
