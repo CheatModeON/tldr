@@ -71,7 +71,7 @@ def submit(LONG_TEXT, id, max_words):
 
 @app.route('/')
 @app.route('/index')
-def about():
+def index():
     return render_template('index.html')
 
 
