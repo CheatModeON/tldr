@@ -141,7 +141,7 @@ def about():
 @app.route('/result', methods=["GET", "POST"])
 def result():
     if request.method == "GET":
-        return render_template('token.html')
+        return render_template('result.html', original="")
     if request.method == "POST":
         parameter = request.form['tkn']
         if(int(parameter) < 0 or int(parameter) >= len(results)):
