@@ -20,20 +20,19 @@
      {% block app_content %}
 
      {% if original %}
-      <h1> THE REQUESTED SUMMARY IS: </h1>
+      <h1> AI GENERATED SUMMARY </h1>
       <div id="text">
           <p>{{res}}</p>
       </div>
 
-      <h1> THE ORIGINAL TEXT IS: </h1>
+      <h1> ORIGINAL TEXT </h1>
       <div id="text">
          <p>{{original}}</p>
       </div>
 
       {% else %}
        ERROR - INVALID TOKEN
-      {% endif %}`
-
+      {% endif %}
 
      {% endblock %}
 

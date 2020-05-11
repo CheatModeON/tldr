@@ -132,9 +132,9 @@ def tldr():
     return render_template('index.html', txt2="your token is " + str(id-1))
     #return "your token is " + str(id-1) + "<br> use it <a href=\"http://"+HOSTNAME+"/result?token="+ str(id-1) +"\">here</a>"
 
-@app.route('/howto', methods=["GET"])
-def howto():
-    return render_template('howto.html')
+@app.route('/about', methods=["GET"])
+def about():
+    return render_template('about.html')
 
 @app.route('/result', methods=["GET", "POST"])
 def result():
