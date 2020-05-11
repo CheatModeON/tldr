@@ -4,6 +4,7 @@
 from flask import jsonify
 from flask import Flask, render_template, flash, request, redirect, url_for
 from werkzeug.utils import secure_filename
+from flask_bootstrap import Bootstrap
 
 from threading import Thread
 import time
@@ -30,6 +31,7 @@ app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
 #app.config['JSON_AS_ASCII'] = False
+bootstrap = Bootstrap(app)
 
 torch_device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
@@ -59,19 +61,19 @@ def submit(LONG_TEXT, id, max_words):
     #for i in range(3): #  3 output sequences were generated
     #    print('Generated {}: {}'.format(i, tokenizer.decode(outputs[i], skip_special_tokens=True)))
     #    summary_txt += tokenizer.decode(outputs[i], skip_special_tokens=True)
-    
+
     summary_txt = tokenizer.decode(summary_ids.squeeze(), skip_special_tokens=True)
-   
+
     global results
     del results[id-1];
     results.insert(id-1, summary_txt);
-         
+
 
 @app.route('/')
 def about():
     return render_template('index.html')
 
-    
+
 @app.route('/uploader/', methods=["POST"])
 def upload_file():
     # check if the post request has the file part
@@ -87,12 +89,12 @@ def upload_file():
     if file and allowed_file(file.filename):
         filename = secure_filename(file.filename)
         #file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-        
+
         #imPath = str(os.path.join(app.config['UPLOAD_FOLDER'], filename))
         config = ('-l eng --oem 1 --psm 3')
 
         #im = cv2.imread(imPath, cv2.IMREAD_C.OLOR)
-        
+
         filestr = request.files['file'].read()
         npimg = np.fromstring(filestr, np.uint8)
         im = cv2.imdecode(npimg, cv2.IMREAD_COLOR)
@@ -108,7 +110,7 @@ def tldr():
     #sent_no = int(request.form['sent_no'])
     #max_words = int(request.form['max_words'])
     #parameter = request.args.get('txt')
-    
+
     #sent_no = 3
     max_words = 142
     LONG_TEXT = parameter#.replace('\n',' ') # replace('\n', ' ') not working correct
@@ -120,7 +122,7 @@ def tldr():
     results.append("processing...") # waiting for thread
     articles.append(LONG_TEXT)
     #submit(LONG_TEXT,id)
-    
+
     thread = Thread(target=submit, args=(LONG_TEXT,id,max_words,))
     thread.daemon = True
     thread.start()
@@ -133,7 +135,7 @@ def token():
         return render_template('token.html', res="Invalid Token")
     else:
         return render_template('token.html', res=results[int(parameter)])
-    
+
 @app.route('/article',methods=["GET"])
 def get_articles():
     parameter = int(request.args['token'])
@@ -141,6 +143,6 @@ def get_articles():
         return "Invalid Token"
     else:
         return articles[int(parameter)]
-    
+
 if __name__ == '__main__':
     app.run(threaded=True, host=HOSTNAME, port=5000)
