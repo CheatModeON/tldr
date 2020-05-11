@@ -38,8 +38,6 @@
           <div class="form-group">
            <textarea class="form-control" id="txt" name="txt" placeholder="Paste your text here.." rows="12">{{ txt1 }}</textarea>
          </div>
-           <!--p>Sentences: <input type="range" id="sent_no" name="sent_no" min="2" max="10" value="3" step="1"> <span id="s1"></span> </p>
-           <p>Max Words: <input type="range" id="max_words" name="max_words" min="20" max="200" value="142" step="1"> <span id="s2"></span> </p-->
           <div class="form-group">
            <input class="btn btn-primary" type = "submit" value = "TLDR" />
          </div>
@@ -63,58 +61,16 @@
       <div>
         <form action = "http://83.212.102.161:5000/uploader/" method=post enctype=multipart/form-data>
 
-          <!--input name=file type=file>
-          <input class="btn btn-primary" type=submit value=Upload-->
-
           <label class="file">
             <input type="file" name="file" id="file-upload" aria-label="File browser example">
             <input class="btn btn-primary" type=submit value=Upload>
           </label>
 
-            <!--div class="custom-file">
-              <input type="file" class="custom-file-input" id="customFile">
-              <label class="custom-file-label" for="customFile">Choose file</label>
-            </div-->
-
-            <!--input class="form-control-file" type=file name=file>
-
-              <input class="btn btn-primary" type=submit value=Upload-->
-
         </form>
-
-        <!--div class="input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
-          </div>
-          <div class="custom-file">
-            <input type="file" class="custom-file-input" id="inputGroupFile01"
-              aria-describedby="inputGroupFileAddon01">
-            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-          </div>
-        </div-->
 
       </div>
 
-
-
     {% endblock %}
-
-      <script>
-        //var slider1 = document.getElementById("sent_no");
-        //var slider2 = document.getElementById("max_words");
-        //var output1 = document.getElementById("s1");
-        //var output2 = document.getElementById("s2");
-        //output1.innerHTML = slider1.value;
-        //output2.innerHTML = slider2.value;
-
-        //slider1.oninput = function() {
-        //    output1.innerHTML = this.value;
-        //}
-
-        //slider2.oninput = function() {
-        //  output2.innerHTML = this.value;
-        //}
-      </script>
 
    </body>
 </html>
