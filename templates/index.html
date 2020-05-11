@@ -42,10 +42,15 @@
         </form>
       </div>
 
+      <hr/>
+
       <div>
         <form action = "http://83.212.102.161:5000/uploader/" method=post enctype=multipart/form-data>
           <div class="form-group">
-              <input class="form-control-file" type=file name=file>
+              <!--input class="form-control-file" type=file name=file-->
+              <div class="file-upload-wrapper">
+                <input type="file" id="input-file-now" class="file-upload" />
+              </div>
           </div>
           <div class="form-group">
              <input class="btn btn-primary" type=submit value=Upload>
