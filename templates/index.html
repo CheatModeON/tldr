@@ -54,9 +54,7 @@
         <form action = "http://83.212.102.161:5000/uploader/" method=post enctype=multipart/form-data>
 
             <div class="form-group">
-
-              <input class="form-control-file" type=file name=file>
-              <input type="file" id="input-file-now" class="file-upload" />
+              <input type="file" class="file-upload" />
             </div>
 
             <!--div class="custom-file">
@@ -84,13 +82,6 @@
     {% endblock %}
 
       <script>
-      $(function() {
-        $('input[type=file]').change(function(){
-          var t = $(this).val();
-          var labelText = 'File : ' + t.substr(12, t.length);
-          $(this).prev('label').text(labelText);
-        })
-      });
         //var slider1 = document.getElementById("sent_no");
         //var slider2 = document.getElementById("max_words");
         //var output1 = document.getElementById("s1");
