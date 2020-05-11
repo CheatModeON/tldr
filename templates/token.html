@@ -18,9 +18,9 @@
 
    <script>
     function validateForm() {
-      var x = document.forms["text_to_sum"]["txt"].value;
+      var x = document.forms["token_form"]["tkn"].value;
       if (x.length <= 0) {
-        alert("insert token");
+        alert("Please insert token!");
         return false;
       }
     }
@@ -30,7 +30,7 @@
      {% extends "base.html" %}
 
      {% block app_content %}
-     <form name = "text_to_sum" action = "http://83.212.102.161:5000/result" onsubmit = "return validateForm()" method = "POST">
+     <form name = "token_form" action = "http://83.212.102.161:5000/result" onsubmit = "return validateForm()" method = "POST">
        <div class="form-group">
         <input type="text" id="tkn" name="tkn" placeholder="Insert your token number..">
        </div>
