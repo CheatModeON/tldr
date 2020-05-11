@@ -44,23 +44,23 @@
      <hr/>
 
      {% if original %}
-      <h1> AI GENERATED SUMMARY </h1>
+      <h2> AI GENERATED SUMMARY </h2>
       <div id="text">
           <p>{{res}}</p>
       </div>
 
-      <h1> ORIGINAL TEXT </h1>
+      <h2> ORIGINAL TEXT </h2>
       <div id="text">
          <p>{{original}}</p>
       </div>
       {% else %}
-      
+
       {% endif %}
 
       {% if res == "Invalid Token" %}
        ERROR - INVALID TOKEN
       {% else %}
-       all ok
+      
       {% endif %}
 
      {% endblock %}
