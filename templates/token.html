@@ -19,11 +19,13 @@
    </style>
    </head>
    <body>
+     {% extends "base.html" %}
+     
       <h1> THE REQUESTED SUMMARY IS: </h1>
       <div id="text">
           <p>{{res}}</p>
       </div>
-      
+
       <script>
         $(document).ready(function() {
           var txt='{{res}}';
@@ -40,7 +42,7 @@
             }
         });
       </script>
-      
+
       <!--script>
           let amp;
           function setup() {

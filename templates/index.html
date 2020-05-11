@@ -8,7 +8,7 @@
         text-align: center;
     }
    </style>
-   
+
    <script>
     function validateForm() {
       var x = document.forms["text_to_sum"]["txt"].value;
@@ -20,26 +20,31 @@
    </script>
    </head>
    <body>
+     {% extends "base.html" %}
+
        <h1> TLDR; Service</h1>
        <p> Insert a text bellow or upload an image with the text you want to summarize. </p>
       <div>
-      <form name = "text_to_sum" action = "http://83.212.102.161:5000/tldr/" onsubmit = "return validateForm()" method = "POST">
-         <p><textarea id="txt" name="txt" placeholder="Write something.." style="width:800px; height:600px">{{ txt1 }}</textarea></p>
-         <!--p>Sentences: <input type="range" id="sent_no" name="sent_no" min="2" max="10" value="3" step="1"> <span id="s1"></span> </p>
-         <p>Max Words: <input type="range" id="max_words" name="max_words" min="20" max="200" value="142" step="1"> <span id="s2"></span> </p-->
-         <p><input type = "submit" value = "TLDR" /> </p>
-         
-      </form>
+        <form name = "text_to_sum" action = "http://83.212.102.161:5000/tldr/" onsubmit = "return validateForm()" method = "POST">
+          <div class="form-group">
+           <textarea class="form-control" id="txt" name="txt" placeholder="Paste your text here.." style="width:800px; height:600px">{{ txt1 }}</textarea>
+         </div>
+           <!--p>Sentences: <input type="range" id="sent_no" name="sent_no" min="2" max="10" value="3" step="1"> <span id="s1"></span> </p>
+           <p>Max Words: <input type="range" id="max_words" name="max_words" min="20" max="200" value="142" step="1"> <span id="s2"></span> </p-->
+          <div class="form-group">
+           <input class="btn btn-primary" type = "submit" value = "TLDR" />
+         </div>
+
+        </form>
       </div>
-      
+
       <div>
       <p> OR UPLOAD A FILE </p>
-      <form action = "http://83.212.102.161:5000/uploader/" method=post enctype=multipart/form-data>
-       <p><input type=file name=file>
-       <input type=submit value=Upload></p>
-      </form>
+        <form action = "http://83.212.102.161:5000/uploader/" method=post enctype=multipart/form-data>
+         <div class="form-group"><input type=file name=file><input type=submit value=Upload></div>
+        </form>
       </div>
-      
+
       <script>
         //var slider1 = document.getElementById("sent_no");
         var slider2 = document.getElementById("max_words");
@@ -56,6 +61,6 @@
           output2.innerHTML = this.value;
         }
       </script>
-      
+
    </body>
 </html>
