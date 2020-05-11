@@ -18,6 +18,11 @@
    </style>
 
    <script>
+
+   if( {{ txt2 }} != null || {{ txt2 }} != ""){
+     alert("Your token is " + {{ txt2 }});
+   }
+
     function validateForm() {
       var x = document.forms["text_to_sum"]["txt"].value;
       if (x.split(" ").length < 50) {
@@ -88,9 +93,6 @@
 
       </div>
 
-      <div>
-        {{ txt2 }}
-      </div>
     {% endblock %}
 
       <script>
