@@ -76,6 +76,7 @@ def index():
     return render_template('index.html')
 
 
+@app.route('/uploader', methods=["POST"])
 @app.route('/uploader/', methods=["POST"])
 def upload_file():
     # check if the post request has the file part
@@ -130,8 +131,12 @@ def tldr():
     thread.start()
     return "your token is " + str(id-1) + "<br> use it <a href=\"http://"+HOSTNAME+"/result?token="+ str(id-1) +"\">here</a>"
 
+@app.route('/howto', methods=["GET"])
+def howto():
+    return render_template('howto.html')
+
 @app.route('/result', methods=["GET"])
-def token():
+def result():
     parameter = int(request.args['token'])
     if(parameter < 0 or parameter >= len(results)):
         return render_template('token.html', res="Invalid Token")
