@@ -6,3 +6,4 @@ pytesseract==0.3.4
 opencv-python==4.2.0.34
 numpy==1.18.4
 Flask-Bootstrap==3.3.7.1
+Flask-WTF==0.14.3
