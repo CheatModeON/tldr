@@ -31,8 +31,12 @@
     <div class="container">
         {% block app_content %}{% endblock %}
     </div>
+{% endblock %}
 
+{% block footer %}
     <footer class="footer">
-      <p>© 2020 Achilleas Papakonstantinou</p>
+      <div class="container">
+        <span class="text-muted">© 2020 Achilleas Papakonstantinou</span>
+      </div>
     </footer>
 {% endblock %}
