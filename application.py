@@ -138,10 +138,13 @@ def howto():
 @app.route('/result', methods=["GET"])
 def result():
     parameter = int(request.args['token'])
-    if(parameter < 0 or parameter >= len(results)):
-        return render_template('result.html', res="Invalid Token")
+    if parameter is None:
+        return render_template('token.html')
     else:
-        return render_template('result.html', res=results[int(parameter)])
+        if(parameter < 0 or parameter >= len(results)):
+            return render_template('result.html', res="Invalid Token")
+        else:
+            return render_template('result.html', res=results[int(parameter)])
 
 @app.route('/article',methods=["GET"])
 def get_articles():
