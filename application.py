@@ -129,7 +129,8 @@ def tldr():
     thread = Thread(target=submit, args=(LONG_TEXT,id,max_words,))
     thread.daemon = True
     thread.start()
-    return "your token is " + str(id-1) + "<br> use it <a href=\"http://"+HOSTNAME+"/result?token="+ str(id-1) +"\">here</a>"
+    return render_template('index.html', txt2="your token is " + str(id-1))
+    #return "your token is " + str(id-1) + "<br> use it <a href=\"http://"+HOSTNAME+"/result?token="+ str(id-1) +"\">here</a>"
 
 @app.route('/howto', methods=["GET"])
 def howto():
