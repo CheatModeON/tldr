@@ -55,7 +55,7 @@
       <div>
         <form action = "http://83.212.102.161:5000/uploader/" method=post enctype=multipart/form-data>
 
-          <input id="file-upload" type="file"/>
+          <input name=file type=file/>
           <!--label class="file">
             <input type="file" id="file-upload" aria-label="File browser example">
             <span class="file-custom"></span>
@@ -65,11 +65,7 @@
               <input type="file" class="custom-file-input" id="customFile">
               <label class="custom-file-label" for="customFile">Choose file</label>
             </div-->
-          </br>
-          </br>
-          <div class="form-group">
-             <input class="btn btn-primary" type=submit value=Upload>
-          </div>
+          <input class="btn btn-primary" type=submit value=Upload>
         </form>
 
         <!--div class="input-group">
