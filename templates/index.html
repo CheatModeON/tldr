@@ -13,7 +13,15 @@
     textarea {
       resize: vertical;
     }
-
+    input[type="file"] {
+        display: none;
+    }
+    .custom-file-upload {
+        border: 1px solid #ccc;
+        display: inline-block;
+        padding: 6px 12px;
+        cursor: pointer;
+    }
 
 
    </style>
@@ -53,9 +61,10 @@
       <div>
         <form action = "http://83.212.102.161:5000/uploader/" method=post enctype=multipart/form-data>
 
-            <div class="form-group">
-              <input type="file" class="file-upload" />
-            </div>
+          <label for="file-upload" class="custom-file-upload">
+            <i class="fa fa-cloud-upload"></i> Upload
+          </label>
+          <input id="file-upload" type="file"/>
 
             <!--div class="custom-file">
               <input type="file" class="custom-file-input" id="customFile">
