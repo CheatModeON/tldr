@@ -145,7 +145,7 @@ def result():
         if(int(parameter) < 0 or int(parameter) >= len(results)):
             return render_template('result.html', res="Invalid Token")
         else:
-            return render_template('result.html', res=results[int(parameter)])
+            return render_template('result.html', res=results[int(parameter)], original=articles[int(parameter)])
 
 @app.route('/article',methods=["GET"])
 def get_articles():
