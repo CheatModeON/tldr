@@ -135,10 +135,10 @@ def tldr():
 def howto():
     return render_template('howto.html')
 
-@app.route('/result', methods=["GET"])
+@app.route('/result', methods=["POST"])
 def result():
-    parameter = request.args['token']
-    if parameter is None:
+    parameter = request.form['tkn']
+    if parameter is None or parameter=="":
         return render_template('token.html')
     else:
         if(int(parameter) < 0 or int(parameter) >= len(results)):
