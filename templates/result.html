@@ -53,9 +53,14 @@
       <div id="text">
          <p>{{original}}</p>
       </div>
-
       {% else %}
+      
+      {% endif %}
+
+      {% if res == "Invalid Token" %}
        ERROR - INVALID TOKEN
+      {% else %}
+       all ok
       {% endif %}
 
      {% endblock %}
