@@ -5,6 +5,7 @@ from flask import jsonify
 from flask import Flask, render_template, flash, request, redirect, url_for
 from werkzeug.utils import secure_filename
 from flask_bootstrap import Bootstrap
+from flask_wtf import FlaskForm
 
 from threading import Thread
 import time
