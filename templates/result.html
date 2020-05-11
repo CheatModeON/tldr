@@ -18,6 +18,8 @@
      {% extends "base.html" %}
 
      {% block app_content %}
+
+     {% if original %}
       <h1> THE REQUESTED SUMMARY IS: </h1>
       <div id="text">
           <p>{{res}}</p>
@@ -27,6 +29,12 @@
       <div id="text">
          <p>{{original}}</p>
       </div>
+
+      {% else %}
+       ERROR - INVALID TOKEN
+      {% endif %}`
+
+
      {% endblock %}
 
       <script>
