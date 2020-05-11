@@ -47,9 +47,11 @@
         </form>
       </div>
       <div>
-        <b>Your token is " + {{ txt2 }}</b>
+        {% if txt2 %}
+        <b>Your token is {{ txt2 }}</b>
+        {% endif %}
       </div>
-      
+
       <hr/>
 
       <h2> OCR it</h2>
