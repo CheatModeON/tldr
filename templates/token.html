@@ -20,11 +20,13 @@
    </head>
    <body>
      {% extends "base.html" %}
-     
+
+     {% block app_content %}
       <h1> THE REQUESTED SUMMARY IS: </h1>
       <div id="text">
           <p>{{res}}</p>
       </div>
+     {% endblock %}
 
       <script>
         $(document).ready(function() {
