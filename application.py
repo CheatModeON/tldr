@@ -31,7 +31,8 @@ HOSTNAME = '83.212.102.161'
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
-app.secret_key = "super secret key"
+#app.secret_key = "super secret key"
+
 #app.config['JSON_AS_ASCII'] = False
 bootstrap = Bootstrap(app)
 
