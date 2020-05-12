@@ -1,15 +1,17 @@
 <html>
    <head>
-   
-   <script>
-    function validateForm() {
-      var x = document.forms["text_to_sum"]["txt"].value;
-      if (x.split(" ").length < 50) {
-        alert("Text too small to summarize");
-        return false;
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+     <link rel="stylesheet" type="text/css" href="style.css">
+     <script>
+      function validateForm() {
+        var x = document.forms["text_to_sum"]["txt"].value;
+        if (x.split(" ").length < 50) {
+          alert("Text too small to summarize");
+          return false;
+        }
       }
-    }
-   </script>
+     </script>
    </head>
    <body>
      {% extends "base.html" %}
