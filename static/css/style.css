@@ -1,7 +1,7 @@
 
-html {
-   position: relative;
-   min-height: 100%;
+html, body {
+  height: 100%;
+  margin: 0;
 }
 body {
    /*text-align: center;
@@ -16,7 +16,7 @@ textarea {
 }
 
 #main {
-  margin-bottom: 60px;
+  min-height: 100%;
 }
 
 .footer {
