@@ -2,6 +2,7 @@
    <head>
      <meta charset="utf-8">
      <meta name="viewport" content="width=device-width, initial-scale=1">
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
    </head>
    <body>
      {% extends "base.html" %}
@@ -29,16 +30,10 @@ Those sentences make sense and are as if a human wrote them.</p>
         </div>
         <div class="col-lg-4">
           <h2>Do's & Don'ts</h2>
-          <p>
-            What it does
-          </p>
           <p>The original text can be from 50 words up to 524288 characters.</p>
           <p>Objectivity is maintained</p>
           <p>Redundancy is eliminated</p>
           <p>Summaries can range in length from two sentences to several pages. Our system produces 3 to 5 sentences on any passage. </p>
-          <p class="text-danger">
-            What it doesn’t
-          </p>
           <p class="text-danger">Include the title and identify the author in your first sentence</p>
           <p class="text-danger">Produces opinions or personal responses</p>
           <p class="text-danger">Avoid plagiarism, since some times it reproduces some original sentences</p>
