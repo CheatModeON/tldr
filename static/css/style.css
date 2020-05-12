@@ -16,7 +16,9 @@ textarea {
 }
 
 #main {
+  padding: 20px;
   min-height: 100%;
+  margin: 0 auto -50px;
 }
 
 .footer {
