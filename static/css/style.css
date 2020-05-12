@@ -1,9 +1,9 @@
 
 html {
+  position: relative;
   min-height: 100%;
 }
 body {
-  position: relative;
   margin-bottom: 60px;
 }
 .footer {
