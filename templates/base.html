@@ -1,29 +1,31 @@
-<style>
-  html {
-   position: relative;
-   min-height: 100%;
-  }
-  body {
-     text-align: center;
-     margin-bottom: 60px;
-  }
-  div {
-     text-align: center;
-  }
-  textarea {
-   resize: vertical;
-  }
-  .footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 60px; /* Set the fixed height of the footer here */
-    line-height: 60px; /* Vertically center the text there */
-    background-color: #f5f5f5;
-  }
-</style>
-
 {% extends 'bootstrap/base.html' %}
+
+{% block header %}
+  <style>
+    html {
+       position: relative;
+       min-height: 100%;
+    }
+    body {
+       text-align: center;
+       margin-bottom: 60px;
+    }
+    div {
+       text-align: center;
+    }
+    textarea {
+     resize: vertical;
+    }
+    .footer {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 60px; /* Set the fixed height of the footer here */
+      line-height: 60px; /* Vertically center the text there */
+      background-color: #f5f5f5;
+    }
+  </style>
+{% endblock %}
 
 {% block title %}
     TLDR Service
