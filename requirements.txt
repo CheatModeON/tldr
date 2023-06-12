@@ -1,7 +1,7 @@
 Flask==1.1.1
 gunicorn==19.9.0
 torch==1.5.0
-transformers==2.8.0
+transformers==4.30.0
 pytesseract==0.3.4
 opencv-python==4.2.0.34
 numpy==1.18.4
